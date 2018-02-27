@@ -1,0 +1,91 @@
+<h3>Add Page</h3><br>
+<form method="post" action="" enctype="multipart/form-data">
+    <div class="show_preview" >
+        <div class="form-group">
+            <label for="username">User Name</label>
+            <input type="text" id="username" name="username" value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="task">Task</label>
+            <textarea id="task" name="task" class="form-control" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="image">Image(320х240)</label>
+            <input type="file" id="image" name="image">
+        </div>
+
+        <div class="form-group">
+            <label for="is_published">Publish?</label>
+            <input type="checkbox" id="is_published" name="is_published" cheked="checked">
+        </div>
+
+
+
+        <input type="submit" class="btn btn-success" value="Submit">
+        <button id="preview">Preview</button>
+    </div>
+
+    <div class="hide_preview" >
+        <h1 id="preview_title"></h1>
+        <p id="preview_task"></p>
+        <p id="preview_username"></p>
+        <p id="preview_email"></p>
+        <button onclick="show_hide()">beck</button>
+
+    </div>
+    <style>
+        .show_preview{
+            display: block
+        }
+        .hide_preview{
+            display: none
+        }
+    </style>
+
+    <script>
+        document.getElementById("preview").addEventListener("click", function(event){
+            event.preventDefault();
+            var data = ['username', 'email', 'task', 'title'];
+            console.log(data);
+            Object.keys(data).map(function(x){
+                document.getElementById("preview_" + data[x]).innerHTML = document.getElementById(data[x]).value;
+            });
+            show();
+            hide();
+
+        });
+    function show_hide(){
+        event.preventDefault();
+        hide();
+        show();
+    }
+        function hide(){
+            let show = document.getElementsByClassName("show_preview");
+            for (var i in show) {
+                if (show.hasOwnProperty(i)) {
+                    show[i].className = 'hide_preview';
+                }
+            }
+
+        }
+        function show(){
+
+            let hide = document.getElementsByClassName("hide_preview");
+
+            for (var i in hide) {
+                if (hide.hasOwnProperty(i)) {
+                    hide[i].className = 'show_preview';
+                }
+            }
+        }
+    </script>
+
+</form>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="/js/admin.js"></script>
+	<title><?=Config::get('site_name')?></title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+			<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+
+		     
+
+		      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+		        <ul class="navbar-nav mr-auto">
+		          <li class="nav-item active">
+		            <a class="nav-link" href="/"><?=Config::get('site_name')?></a>
+		          </li>
+		          <li <?php if(APP::getRouter()->getController() == 'pages') {?> class= "nav-item active" <?php }else{ ?> class= "nav-item" <?php } ?>>
+		            <a class="nav-link" href="/pages/">Tasks</a>
+		          </li>
+		          <li <?php if(APP::getRouter()->getController() == 'contacts') {?> class= "nav-item active" <?php }else{ ?> class= "nav-item" <?php } ?>>
+		            <a class="nav-link" href="/contacts/">Contact Us</a>
+		          </li>
+					<li  <?php if(APP::getRouter()->getController() == 'users') {?> class= "nav-item active" <?php }else{ ?> class= "nav-item" <?php } ?>>
+						<a class="nav-link" href="/admin/users/login">Login</a>
+					</li>
+		        </ul>
+		      </div>
+		    </nav>
+
+		    <main role="main" class="container">
+
+		      <div class="starter-template">
+
+		      	<?php if( Session::hasFlash() ) { ?>
+		      		<div class="alert alert-info" role="alert">
+		      			<?php Session::flash(); ?>
+		      		</div>
+				<?php } ?>
+
+		    	<?=$data['content']?>
+		      </div>
+
+		    </main><!-- /.container -->
+
+
+</body>
+</html>

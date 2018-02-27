@@ -1,0 +1,31 @@
+<h3>Edit Page</h3><br>
+<form method="post" action="">
+	<input type="hidden" name="id" value="<?=$data['page']['id']?>"/>
+	<div class="form-group">
+		<label for="title">Alias</label>
+		<input type="text" id="title" name="title" value="<?=$data['page']['title']?>" class="form-control">
+	</div>
+	<div class="form-group">
+		<label for="username">Title</label>
+		<input type="text" id="username" name="username" value="<?=$data['page']['username']?>" class="form-control">
+	</div>
+	<div class="form-group">
+		<label for="task">Content</label>
+		<textarea id="task" name="task" class="form-control"><?=$data['page']['task']?></textarea>
+	</div>
+	<div class="form-group">
+		<label for="email">Title</label>
+		<input type="email" id="email" name="email" value="<?=$data['page']['email']?>" class="form-control">
+	</div>
+	<div class="form-group">
+		<label for="status">Status</label>
+		<input type="checkbox" id="status" name="status" <?php if( $data['page']['status']) { ?> checked<?php } ?> >
+	</div>
+	<div class="form-group">
+		<label for="is_published">Publish?</label>
+		<input type="checkbox" id="is_published" name="is_published" <?php if( $data['page']['is_published']) { ?> checked<?php } ?> >
+	</div>
+
+	<input type="submit" class="btn btn-success">
+
+</form>
